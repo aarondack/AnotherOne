@@ -1,0 +1,29 @@
+{
+  "name": "another-one",
+  "version": "1.0.0",
+  "description": "Another Language (DJ Khaled Edition)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "api": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adack123/AnotherOne.git"
+  },
+  "keywords": [
+    "Programming",
+    "Languages",
+    "DJ",
+    "Khaled"
+  ],
+  "author": "Aaron Dack & Alex Catanzaro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adack123/AnotherOne/issues"
+  },
+  "homepage": "https://github.com/adack123/AnotherOne#readme",
+  "dependencies": {
+    "got": "^7.1.0"
+  }
+}
