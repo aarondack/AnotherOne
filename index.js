@@ -6,13 +6,21 @@ const PAGE_ID = '144146';
 let top = [];
 let bottom = []; 
 
+function mapLangs(langsList =[]){
+  var listHalf = [];
+  listHalf = langsList.map(element => element);
+
+  return listHalf;
+};
+
 async function getTop() {
  return got(LIST_OF_PROGRAMMING_LANGUAGES, { json: true })
   .then( response => {
     topHalf = response.body.query.pages[PAGE_ID].links;
-    topHalf.forEach(link => {
-      top.push(link.title);
-    })
+    // topHalf.forEach(link => {
+    //   top.push(link.title);
+    // })
+    top = mapLangs(topHalf);
     return top;
 });
 };
@@ -21,9 +29,10 @@ async function getBottom() {
   return got(LIST_OF_PROGRAMMING_LANGUAGES_2, { json: true })
   .then( response  => {
     bottomHalf = response.body.query.pages[PAGE_ID].links;
-    bottomHalf.forEach(link => {
-      bottom.push(link.title);
-    })
+    // bottomHalf.forEach(link => {
+    //   bottom.push(link.title);
+    // })
+    bottom = mapLangs(bottomHalf);
     return bottom;
 });
 };
