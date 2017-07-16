@@ -5,7 +5,7 @@ const LIST_OF_PROGRAMMING_LANGUAGES_2='https://en.wikipedia.org/w/api.php?action
 const PAGE_ID = '144146';
 const fs = require('fs');
 
-async function getTop() {
+export function getTop() {
  return got(LIST_OF_PROGRAMMING_LANGUAGES, { json: true })
   .then( response => {
     topHalf = response.body.query.pages[PAGE_ID].links;
@@ -13,7 +13,7 @@ async function getTop() {
 });
 };
 
-async function getBottom() {
+export function getBottom() {
   return got(LIST_OF_PROGRAMMING_LANGUAGES_2, { json: true })
   .then( response  => {
     bottomHalf = response.body.query.pages[PAGE_ID].links;
