@@ -1,9 +1,9 @@
 import { h, Component } from 'preact';
 
-const Language = ({ programmingLanguage: language }) => (
-  <div>
+const Language = ({ programmingLanguage }) => (
+  <div className="language">
    {
-     language ? language.language : null
+    programmingLanguage ? programmingLanguage.language : null
    }
   </div>
 );

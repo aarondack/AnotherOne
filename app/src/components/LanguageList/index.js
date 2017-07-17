@@ -7,20 +7,25 @@ export default class LanguageList extends Component {
     location: '',
   }
 
+  componentDidMount() {
+    setInterval(() => {
+      this.generateRandomLocation()
+    }, 3000);
+  }
+
+  generateRandomLocation = () => {
+    this.setState({
+      location: Math.floor(data.length * Math.random())
+    })
+  }
+
   render() {
     const { location } = this.state;
     return (
       <div>
-      {
-        setInterval(() => {
-          this.setState({
-            location: Math.floor(data.length * Math.random())
-          });
-        }, 3750)
-      }
-      <Language
-        programmingLanguage={data[location]}
-      />
+        <Language
+          programmingLanguage={data[location]}
+        />
       </div>
     )
   }
