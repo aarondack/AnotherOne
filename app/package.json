@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "preact": "^8.2.1",
-    "preact-compat": "^3.16.0"
+    "preact-compat": "^3.16.0",
+    "styled-components": "^2.1.2"
   }
 }

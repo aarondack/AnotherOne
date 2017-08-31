@@ -1,6 +1,12 @@
 import { h, Component } from 'preact';
 import Language from '../Language';
+import styled from 'styled-components'
 import data from '../../../../public/anotherOne.json';
+
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`;
 
 export default class LanguageList extends Component {
   state = {
@@ -10,7 +16,7 @@ export default class LanguageList extends Component {
   componentDidMount() {
     setInterval(() => {
       this.generateRandomLocation()
-    }, 3000);
+    }, 2075);
   }
 
   generateRandomLocation = () => {
@@ -22,11 +28,11 @@ export default class LanguageList extends Component {
   render() {
     const { location } = this.state;
     return (
-      <div>
+      <Wrapper>
         <Language
           programmingLanguage={data[location]}
         />
-      </div>
+      </Wrapper>
     )
   }
 }
