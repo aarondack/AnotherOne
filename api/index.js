@@ -7,29 +7,26 @@ const LIST_OF_PROGRAMMING_LANGUAGES_2 =
   "https://en.wikipedia.org/w/api.php?action=query&titles=List_of_programming_languages&prop=links&pllimit=213&pldir=descending&format=json";
 const PAGE_ID = "144146";
 
-function getTop() {
+function getBottomHalfLimit() {
   return got(LIST_OF_PROGRAMMING_LANGUAGES, { json: true }).then(response => {
-    topHalf = response.body.query.pages[PAGE_ID].links;
-    return topHalf.map(link => link.title);
+    return response.body.query.pages[PAGE_ID].links.map(link => link.title);
   });
 }
 
-function getBottom() {
+function getTopHalfLimit() {
   return got(LIST_OF_PROGRAMMING_LANGUAGES_2, { json: true }).then(response => {
-    bottomHalf = response.body.query.pages[PAGE_ID].links;
-    return bottomHalf.map(link => link.title);
+    return response.body.query.pages[PAGE_ID].links.map(link => link.title);
   });
 }
 
-async function awaitTopNBottom() {
-  let topArray = await getTop();
-  let bottomArray = await getBottom();
+async function getAllProgrammingLanguages() {
+  const topProgrammingLanguages = await getTopHalfLimit();
+  const bottomProgrammingLanguages = await getBottomHalfLimit();
 
-  let programmingLanguages = [...topArray, ...bottomArray];
-  return programmingLanguages;
+  return [...topProgrammingLanguages, ...bottomProgrammingLanguages];
 }
 
-awaitTopNBottom().then(value => {
+getAllProgrammingLanguages().then(value => {
   const programmingLanguages = value.map(value => {
     return { language: value };
   });
