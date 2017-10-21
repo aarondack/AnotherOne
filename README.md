@@ -1,6 +1,6 @@
 # Another One
 
-Check me out [here](anotherone.surge.sh)
+Check me out [here](www.anotherone.surge.sh)
 
 ## Motivation
 
